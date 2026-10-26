@@ -1,0 +1,71 @@
+
+# tabuleiro = [[' ' for _ in range(3)] for _ in range(3)]
+
+#parte 1:
+# tabuleiro = [
+#     [' ', ' ', ' '],
+#     [' ', ' ', ' '],
+#     [' ', ' ', ' '],
+# ]
+
+# jogador = 'X'
+
+# def exibetabuleiro():
+#     for linha in tabuleiro:
+#         print('|'.join(linha))
+#         print('-' * 5)
+
+# def jogada(linha, coluna):
+#     tabuleiro[linha][coluna] = jogador
+#     if jogador == 'X':
+#         return 'O'
+#     else:
+#         return 'X'
+
+# jogador = jogada(1,1)
+# jogador = jogada(1,2)
+# exibetabuleiro()
+
+# parte 2
+tabuleiro = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+]
+
+jogador = 'X'
+
+def exibetabuleiro():
+    for linha in tabuleiro:
+        print('|'.join(linha))
+        print('-' * 5)
+
+def jogada(linha, coluna):
+    if (
+        not 0 <= linha <= 2 or
+        not 0 <= coluna <= 2 or
+        tabuleiro[linha][coluna] != ' '
+    ):
+    
+        print('Jogada inválida!')
+        return jogador
+    tabuleiro[linha][coluna] = jogador
+    return 'O' if jogador == 'X' else 'X'
+
+while True:
+    print(f'Jogador da vez: {jogador}')
+    try:
+        linha = int(input('Digite a linha: '))
+        coluna = int(input('Digite a coluna: '))
+        jogador = jogada(linha, coluna)
+    except (ValueError, IndexError):
+        print('Digite valores númericos entre 0 e 2')
+
+    # except IndexError:
+    #     print('Digite valores númericos entre 0 e 2')
+    # except ValueError:
+    #     print('digite valores numericos inteiro de 0 a 2')
+    exibetabuleiro()
+
+
+
