@@ -27,12 +27,9 @@ def buscarTarefa(tarefa):
         print(f'Tarefa não encontrada: {tarefa}')
 
 
-        
-
-
 adicionaTarefa('Arrumar a cama')
 adicionaTarefa('Lavar a louça')
 exibeTarefas()
-print('Agora vou concluir...')
-concluirTarefa('Arrumar a cama')
-exibeTarefas()
+
+buscarTarefa('Arruma a cama')
+buscarTarefa('Ir ao mercado')
